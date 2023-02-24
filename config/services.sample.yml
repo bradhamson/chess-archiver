@@ -1,0 +1,7 @@
+chesscom:
+  base_url: ""
+  username: ""
+  time_stamp: true
+lichess:
+  base_url: ""
+  username: ""
