@@ -145,5 +145,13 @@ class ProxyService(Service):
     def __init__(self, platform_service: Union[ChessService, LichessService]) -> None:
         self.platform_service = platform_service
 
+    @property
+    def base_url(self) -> str:
+        return self.platform_service.base_url
+    
+    @property
+    def user_name(self) -> str:
+        return self.platform_service.user_name
+
     def games(self, format: str) -> Generator[Game, None, None]:
         return self.platform_service.games()
