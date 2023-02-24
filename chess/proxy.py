@@ -143,7 +143,15 @@ class LichessService(Service):
 
 class ProxyService(Service):
     def __init__(self, platform_service: Union[ChessService, LichessService]) -> None:
-        self.platform_service = platform_service
+        self._platform_service = platform_service
+
+    @property
+    def platform_service(self) -> Service:
+        return self._platform_service
+    
+    @platform_service.setter
+    def platform_service(self, service: Service) -> None:
+        self._platform_service = service
 
     @property
     def base_url(self) -> str:
